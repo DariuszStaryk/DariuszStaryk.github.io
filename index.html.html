@@ -1,0 +1,788 @@
+<!DOCTYPE html>
+
+<html lang="pl">
+
+<head>
+        <meta charset="UTF-8">						
+		<meta name="description" content="Fajna strona o pociągach">
+		<meta name="keywords" content="pociągi, samoloty, rowery">
+		<meta name="author" content="Papa Smerf">
+			
+		<title> Wszystko o pociągach </title>
+		
+		<link rel="stylesheet" href="file.css">
+		<script src="file.js"></script>
+		<script src="/media/wimpy.js"></script>		
+                        
+		<style>	
+			span.abc19 {color: red; background-color: #ffffff; font-size: 120%;}
+		
+			#JamesBond {color: orange; border-left: 5px solid #f8f8f8; background-color:cornsilk; padding: 10px; margin: 30px; width:600px;}
+			.Boston {color: red; border: 2px dashed #add8e6; border-radius: 10px; padding: 10px; margin: 30px; width:600px;}
+			
+			table, th, td {border: 1px solid black; padding:2px; height: 20px; width: 30%;}
+			table#tabelka01 {color: white; background-color: black;}
+			table#tabelka01 tr:nth-child(odd) {background-color: #eee; color: black}
+			table#tabelka01 tr:nth-child(even) {background-color: #CCCCCC; color: black}
+			table#tabelka01 th {background-color: red; color:white; text-align: middle; vertical-align: middle;}
+			table#tabelka01 tr:hover {background-color: #ffcc66}
+			
+			#link120:link, #link120:visited {color: red; display: inline-block;}
+			#link120:hover {color:darkblue; background-color: cornsilk;}
+			#link120:active {color:green;}
+			
+			#link130:link, #link130:visited {font-family:arial; color:black; text-decoration:none; background-color:white; padding:10px; border: solid orange 1px; 
+												text-align: center; display: inline-block; margin-right:8px;}
+			#link130:hover {color:darkblue; background-color:cornsilk; color:red; border: solid darkorange 1px; text-align:center;}
+			#link130:active {color:green;}
+			
+			#link140:link, #link140:visited {font-family:arial; color:black; text-decoration: none; background-color:white; padding:10px; border: solid orange 1px; 
+											 text-align: center; display: inline-block;}
+			#link140:hover {color:white; background-color:orange; text-align:center;}
+			#link140:active {color:green;}
+			
+			#p19 {display: none; background-color: yellow;}
+			#div19:hover #p19 {display: inline;}            
+		
+			#imgBUS {opacity: 0.5;}
+			#imgBUS:hover {opacity: 1.0; border: 2px dashed orange;}
+			
+			#menupionowe li a {display:block; color:#000; padding:8px 0px 8px 16px; text-decoration:none;}
+			#aktywny01 {background-color: #4CAF50; color: white;}
+			#menupionowe li a:hover {background-color: #555; color: white;}		
+			
+			#menupoziome li {float:left;}
+			#menupoziome li a {display: block; color: black; text-align: center; padding: 14px 16px; text-decoration: none;}
+			#menupoziome li a:hover {background-color: #ddd;}
+			#aktywny02 {color: white; background-color: #4CAF50;}
+			
+			#rozwijanemenu01 div {display: none;}
+			#rozwijanemenu01:hover div {display: block;}
+		
+			#lista_w_dół-treść {display: none;}
+			#lista_w_dół:hover #lista_w_dół-treść {display: block;}
+
+			#lista_w_dół-treść a {color: black; padding: 12px 16px; text-decoration: none; display: block;}
+			#lista_w_dół-treść a:hover {background-color: #f1f1f1}
+						
+			#wskazówka01-tekst {visibility: hidden; opacity: 0; transition: all 1s;}			
+			#wskazówka01:hover #wskazówka01-tekst {visibility: visible; opacity: 1;} 		
+						
+			#fname:focus, #lname:focus {background-color: lightblue;}
+			
+			.ramka_zew {float:left; margin-left:20px; margin-bottom:10px;}
+			.ramka_wew {border: 15px dashed #cce6ff; height:60px; width:60px; background-image:url(/img/misc/young-woman-1745173_640.jpg);
+						padding: 30px; background-repeat: no-repeat; background-size: 150px;}
+
+			#rozwijane_menu01 {width: 200px; height: 50px; transition-property: width, height, transform; transition-duration: 1s, 2s, 0.2s; transition-timing-function: ease;}
+		 	#rozwijane_menu01:hover {width: 400px; height: 150px; transform: translate(100px,0px)}
+									
+			@keyframes animacja_01  {0% {background-color:red; left:0px; top:0px;}
+									25% {background-color:yellow; left:400px; top:20px;}
+									50% {background-color:blue; left:200px; top:200px;}
+									75% {background-color:green; left:0px; top:200px;}
+								   100% {background-color:red; left:0px; top:0px;}}
+			
+			#obrazek101:hover {box-shadow: 0 0 2px 1px rgba(0, 140, 186, 0.5);}
+			
+			.przycisk512 {background-color: #4CAF50; border: none; color: white; padding: 15px 32px; text-align: center; text-decoration: none; display: inline-block; 
+						font-size: 16px; margin: 4px 2px; cursor: pointer; transition-duration: 0.4s;}
+			
+			.przycisk701 {background-color: #008CBA; color: white; border: 2px solid #008CBA;} 
+			.przycisk701:hover {background-color: white; color: black; border: 2px solid #008CBA;}
+			.przycisk702 {background-color: #f44336; color: white; border: 2px solid #f44336;} 
+			.przycisk702:hover {background-color: white; color: black; border: 2px solid #f44336;}
+			.przycisk703 {background-color: white; color: black; border: 2px solid orange;} 
+			.przycisk703:hover {background-color: orange; color: white; border: 2px solid orange; box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);}
+			.przycisk704 {background-color: white; color: black; border: 2px solid #99ccff;} 
+			.przycisk704:hover {background-color: #99ccff; color: white; border: 2px solid #99ccff; box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);}
+			
+			@media screen and (max-width: 700px) {#media74 {color: black; font-size: 8px;}}
+			@media screen and (min-width: 200px) and (max-width: 700px) {#media74 {color: red;  font-size: 14px;}}
+			@media screen and (min-width: 700px) and (max-width: 1200px) {#media74 {color: green; font-size: 20px;}}
+			@media screen and (min-width: 1200px) {#media74 {color: orange; font-weight:900; font-size: 24px;} #media74:after {content:" hello :)"; color: red; font-size: 24px;}}
+			
+            </style>
+	</head>
+	<body> 
+
+	<!-- ---------------------------------------------------TEXT---------------------------------------------------------------------------- --> 
+                                                                <hr><p style="font-family: arial; font-size:20px; text-align:center; color:red;"> <b> TEXT </b> </p>		
+
+		<h2 style="text-align: center;"> Szybkie pociągi pasażerskie </h2>
+	
+		<div style="background-color: whitesmoke; font-family: arial; font-size: 110%; color: red; width:320px; margin-left: 4%; text-align: center; line-height: 30px;">
+			<p style="display: inline;"> Wiadomości dostępne na: </p> <a href="http://www.onet.pl/" title="śmiało" target="_blank"> <p style="text-align:center; display:inline;"> www.onet.pl </p> </a>
+		</div><br>
+		
+		<a href="#JamesBond" target="_blank"> Skocz bezpośrednio do określonego miejsca tutaj </a> <br><br>
+		<a href="http://wickedlysmart.com/buzz/index.html#Coffee" target="_blank"> Skocz do określonego miejsca na innej stronie </a>
+		
+		<p title="Święta tuż, tuż - wyświetla tooltip"> I am a programmer (wyświetla tooltip) </p>
+		<p style="color:brown; background-color:LemonChiffon; width: 20%; text-align: center;"> I will go on the holidays </p>
+		<p style="color:orange;"> Jadę na wycieczkę </p>		<p style="color:rgb(255,25,0);"> Idę do lasu </p>		<p style="color:#0000FF;"> Płynę statkiem </p>
+		
+		<p id="JamesBond"> To jest id "JamesBond" </p> 		<p class="Boston"> To jest klasa "Boston" </p> 
+	
+		<p style="font-family:Verdana; font-size:120%; text-align:center;"> Lista najszybszych pociągów: </p>
+		<p> Fragment tekstu, który jest <b> pogrubiony </b> albo <i> ukośny </i> albo <small> malutkie literki </small> </p>
+		<p> Tekst <mark> podświetlony </mark> Tekst <del> usunięty </del> Tekst <ins> dodany </ins> w zdaniu. 
+			A to Informacja w <sub> przypisie </sub> lub <sup> na górze </sup> w zdaniu.</p>
+		<p> A to fragment <q>wielkiego cytatu</q> ze sławnej powieści Toma Cruise'a. </p>		<!-- dla krótkich cytatów - inline element -->
+		<p> A to bardzo duży cytat z ważnej książki:</p>										<!-- dla długich cytatów poniżej - block element -->
+		<blockquote> <q>Senne miasteczko położone na malowniczej nowozelandzkiej wyspie ma tanie domy, wysoko płatne miejsca pracy.</q> </blockquote>
+		<strong> "strong" element indicates, that its content has strong importance </strong> <br>
+		<em> "em" element indicates emphasis, that subtly changes the meaning of a sentence</em>
+		<p><abbr title="Professor">"Prof"</abbr> - abbreviation - najedź myszką na "Prof" </p>
+		<p><cite>A Brief History of Time</cite> - cite - when u are referencing a piece of work such as a book, film, research paper <cite></p>
+		<p>A <dfn>black hole</dfn> - Definition - the first time you explain some new terminology</p>
+		<p><s>Something, that is no longer accurate or relevant (but that should not be deleted)</s></p>
+			
+		<address>	<p><a href="mailto:homer@example.org"> homer@example.org </a></p>	</address>
+		<progress value="22" max="100"></progress> <br><br>
+					
+		<a href="http://www.onet.pl/" title="click me" target="_blank"><img src="/img/misc/germany-4338114_640.jpg" alt="little train" width=300></a>
+    
+        Obraz <a href="https://pixabay.com/pl/users/charcoal278-10438127/?utm_source=link-attribution&amp;utm_medium=referral&amp;utm_campaign=image&amp;utm_content=4338114" target="_blank"> Edward Köhler</a> z <a href="https://pixabay.com/pl/?utm_source=link-attribution&amp;utm_medium=referral&amp;utm_campaign=image&amp;utm_content=4338114" target="_blank"> Pixabay</a>
+
+		<p style="font-family: Arial, Helvetica, sans-serif;"> Widoczna na zdjęciu zorza świeci głównie w ultrafiolecie. </p>
+		<p style="font-style: italic;"> Widoczna na zdjęciu zorza świeci głównie w ultrafiolecie. </p>		<!-- not italic, można też oblique - not oblique -->
+				
+		<p style="font-size: 1.5em;"> EM CHECK - Widoczna na zdjęciu zorza świeci głównie w ultrafiolecie. </p>					
+		<p style="font-size: 16px; color:red;"> Normalna 16 - Standardowa czcionka. </p>					
+		<p style="font-weight: bold;"> Bold - Widoczna na zdjęciu zorza świeci głównie w ultrafiolecie. </p>					
+		<p style="font-variant: small-caps;"> Widoczna na zdjęciu zorza świeci głównie w ultrafiolecie. </p>					
+			
+		<p style="text-align:left;"> Left - Teleskop Hubble’a przesłał nowe zdjęcia zorzy tworzącej się wokół bieguna Jowisza. </p>				
+		<p style="text-align:center;"> Center - Teleskop Hubble’a przesłał nowe zdjęcia zorzy tworzącej się wokół bieguna Jowisza. </p>				
+		<p style="text-align:right;"> Right - Teleskop Hubble’a przesłał nowe zdjęcia zorzy tworzącej się wokół bieguna Jowisza. </p>				
+			
+		<p style="text-decoration:none;"> Fragment jakiejś długiej opowieści </p>				
+		<p style="text-decoration:overline;"> Fragment jakiejś długiej opowieści </p>		
+		<p style="text-decoration:line-through;"> Fragment jakiejś długiej opowieści </p>				
+		<p style="text-decoration:underline;"> Fragment jakiejś długiej opowieści </p>		
+				
+		<p style="text-transform:uppercase;"> Widoczna na zdjęciu zorza świeci głównie w ultrafiolecie. </p>					
+		<p style="text-transform:lowercase;"> Widoczna na zdjęciu zorza świeci głównie w ultrafiolecie. </p>					
+		<p style="text-transform:capitalize;"> Widoczna na zdjęciu zorza świeci głównie w ultrafiolecie. </p>					
+
+		<p style="text-indent: 50px; width: 12cm; text-align:justify; border: orange dashed 2px; padding:8px;"> Zjawisko pojawia się, gdy rozpędzone w polu magnetycznym cząstki zderzają się z atmosferą Jowisza 
+		i pobudzają gaz do świecenia. Na Ziemi to zjawisko pojawia się gdy aktywność Słońca rośnie i w naszą planetę trafia strumień cząstek wiatru słonecznego. </p>					
+		
+		<p style="letter-spacing: 3px; color: blue;"> Widoczna na zdjęciu zorza świeci głównie w ultrafiolecie. </p>					
+		<p style="letter-spacing: -3px; color: blue;"> Widoczna na zdjęciu zorza świeci głównie w ultrafiolecie. </p>					
+
+		<p style="word-spacing: 3px; color: orange;"> Widoczna na zdjęciu zorza świeci głównie w ultrafiolecie. </p>					
+		<p style="word-spacing: -3px; color: orange;"> Widoczna na zdjęciu zorza świeci głównie w ultrafiolecie. </p>					
+
+		<p style="line-height: 0.6; margin-left: 10%;"> Jednak Jowisz ma tak silne pole magnetyczne, że wychwytuje z przestrzeni wiele drobin, <br> w tym materiał wyrzucany przez jego księżyce. </p>					
+		<p style="line-height: 1.4; margin-left: 10%;"> Jednak Jowisz ma tak silne pole magnetyczne, że wychwytuje z przestrzeni wiele drobin, <br> w tym materiał wyrzucany przez jego księżyce. </p>					
+				 
+		<p style="text-shadow: 3px 3px 2px orange;"> 1. Olbrzymie są też zorze polarne, które w dodatku nigdy nie przestają świecić. </p>					
+		<p style="color: black; text-shadow: 0 0 3px #FF0000;"> 2. Olbrzymie są też zorze polarne, które w dodatku nigdy nie przestają świecić. </p>														
+		<p style="color: white; text-shadow: 2px 2px 4px #000000;"> 3. Olbrzymie są też zorze polarne, które w dodatku nigdy nie przestają świecić. </p>											
+		<p style="color: white; text-shadow: 1px 1px 2px black, 0 0 25px blue, 0 0 5px darkblue;"> 4. Olbrzymie są też zorze polarne, które w dodatku nigdy nie przestają świecić. </p>																	
+			
+		<p> Olbrzymie są też zorze polarne, <span style="vertical-align:50%;"> które w dodatku nigdy </span> nie przestają świecić (vertical-align: 50%). </p>					
+		
+		<a>Tekst<img src="/img/misc/strawberries-4330211_640.jpg" style="vertical-align: text-bottom; border: dotted 1px gray; width: 120px;">Tekst</a>
+		<a>Tekst<img src="/img/misc/strawberries-4330211_640.jpg" style="vertical-align: middle; border: dashed 1px orange; width: 120px;">Tekst</a>
+		<a>Tekst<img src="/img/misc/strawberries-4330211_640.jpg" style="vertical-align: text-top; border: dotted 1px gray; width: 120px;">Tekst</a><br><br>
+        
+        Obraz <a href="https://pixabay.com/pl/users/Alexas_Fotos-686414/?utm_source=link-attribution&amp;utm_medium=referral&amp;utm_campaign=image&amp;utm_content=4330211" target="_blank"> Alexas_Fotos</a> z <a href="https://pixabay.com/pl/?utm_source=link-attribution&amp;utm_medium=referral&amp;utm_campaign=image&amp;utm_content=4330211" target="_blank"> Pixabay</a>
+
+        <div style="border: 2px lightblue solid; width: 600px; height: 60px;">Hej ho !! Hej ho !!<span style="vertical-align: -50%;">wewnątrz div "vertical-align" nie działa</span></div>
+                
+	<!-- ---------------------------------------------------LISTS---------------------------------------------------------------------------- --> 
+																	<hr><p style="font-family: arial; font-size:20px; text-align:center; color:dodgerblue;"> <b> LISTS </b> </p>	
+		<ol>
+			<li style="list-style-type: decimal;"> Block-level Elements </li>
+			<li style="list-style-type: decimal-leading-zero;"> Block-level Elements Sun </li>
+			<li style="list-style-type: disc;"> Block-level Elements 12 </li>
+			<li style="list-style-type: circle;"> Block-level Elements Race </li>
+			<li style="list-style-type: square;"> Potop Szwedzki </li>
+			<li style="list-style-type: upper-roman;"> Lot w kosmos </li>
+			<li style="list-style-type: lower-roman;"> Lot w kosmos 777 </li>
+			<li style="list-style-type: upper-alpha;"> Bieg w kosmos </li>
+			<li style="list-style-type: lower-alpha;"> Bieg w kosmos 33 </li>
+			<li style="list-style-image: url('http://www.cs.unc.edu/~helser/graphics_page/images/bullets/dots/pi_dot.gif');"> Spacer po plaży </li>
+			<li style="list-style-position: inside;"> Inside </li>
+			<li style="list-style-position: outside;"> Outside - domyślnie </li>
+			<li style="list-style: square outside url('http://www.cs.unc.edu/~helser/graphics_page/images/bullets/dots/pi_dot.gif');"> Wszystkie 3 komendy w 1 linijce </li>
+		</ol>
+
+		<div style="background:whitesmoke;width:25%;">
+		<p style="text-decoration: underline;"> Najważniejsze wydarzenia w <span class="abc19"> historii </span> nowożytnej: </p>
+			<ol type="i">			<!-- <ol type="1|a|A|i|I"> -->
+				<li>Block-level Elements:</li>
+				<li>Potop Szwedzki</li>
+				<li>Lot w kosmos</li>
+			</ol>
+		</div>
+		
+		<ul>
+		    <li>Mousses</li>
+		    <li>Pastries
+		        <ul>
+		            <li>Wcięcia mają automatycznie inny bullet</li>
+		            <li>Mille-feuille</li>
+		            <ul>
+		                <li>Wcięcia mają automatycznie inny bullet</li>
+		                <li>Profiterole</li>
+		            </ul>
+		            <li>Palmier</li>
+		            <li>Profiterole</li>
+		        </ul>
+		    </li>
+		    <li>Tamts</li>
+		</ul>
+		
+	<!-- ---------------------------------------------------TABLES---------------------------------------------------------------------------- --> 
+						<hr><p style="font-family: arial; font-size:20px; text-align:center; color:brown;"> <b> TABLES </b> </p>
+						
+		<div style="overflow-x:auto;">
+			<table id="tabelka01" style="border-collapse: collapse; border-spacing: 8px;">
+				<caption style="caption-side: top; color:darkorange; font-family:Arial; font-size:160%;"> Lista pociągów </caption>
+				<tr>
+					<th colspan="3" style="color:chocolate; background-color:#FFE4C4;"> Informacje </th>
+				</tr>
+				<tr>	
+					<th> Numer </th><th> Nazwa </th><th> Szybkość </th>
+				</tr>
+				<tr>
+					<td> 354 </td><td> PKP-TLK </td><td> 125 km/h </td>
+				</tr>
+				<tr>
+					<td> 154 </td><td> TGV </td><td> 225 km/h </td>
+				</tr>
+				<tr>
+					<td> 99x54 </td><td> Sapporo </td><td> 323 km/h </td>
+				</tr>
+			</table> <br>
+        </div>
+      
+			<table border="1">			
+				<caption>Table 6-1: HTML Markup Structure and Sequence</caption>
+				<colgroup>
+					<col style="background-color: cornsilk; font-size: 120%;">
+					<col style="background-color: mistyrose;">
+				</colgroup>
+				<thead>
+					<tr><th colspan="2" style="background-color: khaki; color: red;">Table Markup Explained</th></tr>
+					<tr><th>Element</th><th>Description</th></tr>
+				</thead>
+				<tbody>
+					<tr><td>table</td><td>overall table container</td></tr>
+					<tr><td>caption</td><td>table caption text</td></tr>
+					<tr><td>tbody</td><td>table body container</td></tr>
+					<tr><td>tfoot</td><td>table footer container</td></tr>
+				</tbody>
+				<tfoot><tr><th>Element</th><th>Description</th></tr></tfoot>
+            </table><br>
+            
+			<table border="1">
+				<tr><td colspan="4">1</td></tr>
+				<tr><td rowspan="2">2</td><td rowspan="2">3</td><td colspan="2">4</td></tr>
+				<tr><td>5</td><td>6</td></tr>
+				<tr><td colspan="4">7</td></tr>				
+            </table>
+            		
+			<table style = "width: 400px;">								
+				<caption style = "font-size: 2em; font-weight: bold;">Time Sheet</caption>
+				<thead style = "background-color: #eaeaea;">
+					<tr>	<th>Day</th>	<th>Hours</th>	</tr>
+				</thead>
+				<tbody style = "font-family: Arial, sans-serif; font-size: .90em;">
+					<tr>	<td style="border-bottom: 1px #000033 dashed; padding-left: 25px;" headers="day">Monday</td>	<td style="border-bottom: 1px #000033 dashed; padding-left: 25px;" headers="hours">4</td>	</tr>
+					<tr>	<td style="border-bottom: 1px #000033 dashed; padding-left: 25px;" headers="day">Tuesday</td>	<td style="border-bottom: 1px #000033 dashed; padding-left: 25px;" headers="hours">3</td>	</tr>
+					<tr>	<td style="border-bottom: 1px #000033 dashed; padding-left: 25px;" headers="day">Wednesday</td> <td style="border-bottom: 1px #000033 dashed; padding-left: 25px;" headers="hours">5</td>	</tr>
+					<tr>	<td style="border-bottom: 1px #000033 dashed; padding-left: 25px;" headers="day">Thursday</td>	<td style="border-bottom: 1px #000033 dashed; padding-left: 25px;" headers="hours">3</td>	</tr>
+					<tr>	<td style="border-bottom: 1px #000033 dashed; padding-left: 25px;" headers="day">Friday</td>	<td style="border-bottom: 1px #000033 dashed; padding-left: 25px;" headers="hours">3</td>	</tr>
+				</tbody>
+				<tfoot style = "background-color: #eaeaea; font-weight: bold; text-align: center;">
+					<tr>	<td headers="day">Total</td>	<td headers="hours">18</td>	</tr>
+				</tfoot>
+            </table>
+            			
+	<!-- ---------------------------------------------------FORMS---------------------------------------------------------------------------- --> 
+							<hr><p style="font-family: arial; font-size:20px; text-align:center; color:YellowGreen ;"> <b> FORMS </b> </p>
+	
+	<form>			
+		<label for="fname"> First Name </label>		<input type="text" id="fname" name="fname" placeholder="Jaś..."> 
+		<label for="lname"> Last Name </label>  	<input type="text" id="lname" name="lname" placeholder="Kowalski...">
+	</form><br>
+
+	<form>
+		<input type="text" name="szukaj" placeholder="Wyszukaj... " style="width: 500px; box-sizing: border-box; border: 2px solid #ccc; border-radius: 4px; font-size: 16px; background-color: white; background-image: url('http://www.freeiconspng.com/uploads/search-icon-png-25.png');
+					background-position: 8px center; background-size: 28px 28px; background-repeat: no-repeat; padding: 12px 20px 12px 44px;">
+	</form><br>
+		
+	<input type="button" value="Button" style="background-color: orange; border: none; color: white; padding: 16px 32px; text-decoration: none; margin: 4px 2px; cursor: pointer;">
+
+	<form style="display:inline;">
+		<select id="kraj112" name="kraj112" style="width:200px; padding: 8px 10px; border: none; border-radius: 14px; background-color: #f1f1f1; margin-left:20px;">
+			<option value="usa"> Australia </option>
+			<option value="usa"> Kanada </option>
+			<option value="usa"> USA </option>
+		</select>
+	</form>
+
+	<form style="display:inline; margin-left:20px;">		
+		<textarea rows="3" cols="60" style="padding: 12px 20px; box-sizing: border-box; border: 2px solid #ccc; border-radius: 4px; 
+						background-color: #f8f8f8; font-size: 16px; resize: none;"> Jakiś ciekawy tekst ... </textarea>
+	</form><br><br>
+	<form>
+		<input type="radio" name="płeć" value="mężczyzna" checked> Mężczyzna <br>
+		<input type="radio" name="płeć" value="kobieta"> Kobieta <br>
+		<input type="radio" name="płeć" value="dziecko"> Dziecko <br>
+	</form> <br>
+		
+	<form action="action_page.php" method="post" target="_blank" accept-charset="UTF-8" enctype="application/x-www-form-urlencoded" autocomplete="off" 
+					novalidate target="_blank" accept-charset="UTF-8" enctype="application/x-www-form-urlencoded" autocomplete="off" novalidate>
+		<fieldset>		
+		<legend> Informacje osobowe: </legend>		
+			<label style="width:300px; display: inline-block; text-align: right; margin-bottom: 6px;"> Imię (disabled): </label> <input type="text" name="imię" value="Myszka" readonly size="20"><br>		<!-- lepiej dodać tutaj label przed i po -->
+			<label style="width:300px; display: inline-block; text-align: right; margin-bottom: 6px;"> Nazwisko na 40 znaków (max 10): </label> <input type="text" name="nazwisko" value="Miki" size="20" maxlength="10"><br>
+			<label style="width:300px; display: inline-block; text-align: right; margin-bottom: 6px;"> Nazwisko2: </label> <input type="text" name="nazwisko" value="Miki" disabled size="20"><br>
+			<label> Hasło: </label> <input type="password" name="psw">		
+					
+			<input type="submit" value="wyślij">	
+			<input type="image"; src="http://icons.iconarchive.com/icons/custom-icon-design/pretty-office-9/64/email-send-icon.png" alt="Submit" style="width:20px;">
+		</fieldset>
+	</form><br>		
+	
+	<button> Click Me ! </button>
+	<button type="button" onclick="alert('Witaj !')"> Naciśnij ! </button>
+	<input type="button" onclick="alert('Witaj !')" value="Naciśnij !"> <br> <br>	
+		
+	<form action="action_page.php">
+		<input list="browsers" name="browser"> 
+		<datalist id="browsers">
+			<option value="Internet Explorer">	<option value="Firefox">	<option value="Chrome">		<option value="Opera">	  <option value="Safari">
+		</datalist>
+	</form><br>
+	
+	<form action="action_page.php"> 	
+		<input type="checkbox" name="vehicle1" value="rower"> Mam rower <br>
+		<input type="checkbox" name="vehicle2" value="samochód"> Mam samochód <br>
+		<input type="checkbox" name="vehicle3" value="deskorolka"> Mam deskorolkę <br>
+	</form>
+	
+	<form action="action_page.php">
+		Punkty: <input type="range" name="points" min="0" max="10"> <br>
+		    Cyfra (między 1 a 5) + required: <input type="number" name="quantity" min="1" max="5" required>           <!-- są też różne inne limity -->
+		Między 0 a 100, co 10, domyślnie 30: <input type="number" name="points" min="0" max="100" step="10" value="30"><br>
+		Data: <input type="date" name="bday">
+		Miesiąc: <input type="month" name="bdaymonth" style="border: 4px dashed orange; font-size: 14px; padding: 4px;">
+		Tydzień: <input type="week" name="week_year">
+		Czas: <input type="time" name="usr_time"> <br>
+		E-mail + placeholder: <input type="email" name="email" placeholder="Twój adres e-mail">
+		Search: <input type="search" name="googlesearch">
+		www: <input type="url" name="homepage">
+		Wybierz pliki: <input type="file" name="onrazek" multiple><br>		<!-- must have a value of post. You cannot send files using the HTTP get method) -->
+		Kod kraju: <input type="text" name="kod_kraju" pattern="[A-Za-z]{3}" title="Tylko trzy literki"> <input type="submit">
+    </form><br>					
+        
+	<!-- ---------------------------------------------------MULTIMEDIA------------------------------------------------------------------------ --> 
+                                                <hr><p style="font-family: arial; font-size:20px; text-align:center; color:blue;"> <b> MULTIMEDIA </b> </p>
+    
+        <div style="position: relative;">
+            <video id="video_INTRO" width="30%" height="20%" controls autoplay loop style="opacity: 0.5;">
+                <source src="/videos/Gubat Beach.mp4" type="video/mp4" >
+            </video> 
+            <p style="position: absolute; top: 1vw; left: 2vw; color: darkslateblue; font-size: 2vw;"> Aloha to all !!! </p>
+            <iframe width="500px" height="260px" src="https://www.youtube.com/embed/hFXTa2yeYWs" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
+        
+        <script>
+              var vid200 = document.getElementById("video_INTRO");
+              vid200.playbackRate = 0.5;
+        </script>
+		
+		<audio controls style="width: 40%;">
+			<source src="/music/bensound-ukulele.mp3" type="audio/mpeg"> <p> Twoja przeglądarka nie obsługuje audio </p>
+        </audio>		
+        <p style="margin: 0px;">Music: https://www.bensound.com</p>
+	
+                                                                                  
+	<!-- ---------------------------------------------CSS---TEXT------------------------------------------------------------------------ -->
+                                                                                        <hr><p style="font-family: arial; font-size:20px; text-align:center; color:red;"> <b> CSS - TEXT </b> </p>
+	
+	    <div style="width: 200px; border: 1px solid #000000;"> 1. This is some long text that will not fit in the box </div><br>
+		<div style="white-space: nowrap; width: 200px; border: 1px solid #000000;"> 2. This is some long text that will not fit in the box </div><br>
+		<div style="white-space: nowrap; width: 200px; border: 1px solid #000000; overflow: hidden; text-overflow:ellipsis;"> 3. This is some long text that will not fit in the box </div><br>
+		<div style="white-space: nowrap; width: 200px; border: 1px solid #000000; overflow: hidden; text-overflow:clip;"> 4. This is some long text that will not fit in the box </div>
+
+		<p style="width: 180px; border: 1px solid #000000; float:left; margin-left:20px;"> 5. This paragraph contains a very long word: thisisaveryveryveryveryveryverylongword. The long word will break and wrap to the next line. </p>
+		<p style="width: 180px; border: 1px solid #000000; word-wrap: break-word; float:left; margin-left:120px;"> 6. This paragraph contains a very long word: thisisaveryveryveryveryveryverylongword. The long word will break and wrap to the next line. </p>
+	
+		<p style="width: 140px; border: 1px solid #000000; word-break: keep-all; float:left; margin-left:20px;"> 7. This paragraph contains some text. This line will-break-at-hyphens. </p>
+        <p style="width: 140px; border: 1px solid #000000; word-break: break-all; float:left; margin-left:20px;"> 8. This paragraph contains some text. The lines will break at any character. </p>
+	
+	<!-- ---------------------------------------------CSS---POSITIONING------------------------------------------------------------------------ -->
+                                        <hr style="clear:left"><p style="font-family: arial; font-size:20px; text-align:center; color:dodgerblue;"> <b> POSITIONING </b> </p>
+                                       			
+	<div style="padding: 0px; border: 3px solid lightgrey; height: 40px;">
+		<p style="margin: 0px auto; padding: 4px; width: 660px; border: 2px dashed khaki; text-align: center;"> I am horizontally centered - element block wewnątrz block => margin: auto </p>
+	</div><br>
+
+	<div style="padding: 0px; border: 3px solid lavender; text-align: center; height: 40px;">
+		<p style="display: inline; margin: 0px; border: 2px dashed khaki;"> I am horizontally centered - element inline wewnątrz block => text align: center </p>
+	</div><br>
+	
+	<div style="float:left; border: 3px solid #73AD21; width: 300px;"> <p> An example of how to align elements with the float property </p> </div>
+
+	<div style="position: absolute; right: 0px; width: 300px; border: 3px solid #73AD21;"><p>An example of how to right align elements with the position property</p></div>
+						
+	<img src="/img/misc/mountains-4366770_640.jpg" style="width: 400px; display: block; margin:auto; box-shadow: 12px 12px 14px 0px rgba(0,0,0,0.2);"><br>
+    <br>
+    Obraz <a href="https://pixabay.com/pl/users/Tama66-1032521/?utm_source=link-attribution&amp;utm_medium=referral&amp;utm_campaign=image&amp;utm_content=4366770" target="_blank"> Peter H</a> z <a href="https://pixabay.com/pl/?utm_source=link-attribution&amp;utm_medium=referral&amp;utm_campaign=image&amp;utm_content=4366770" target="_blank"> Pixabay</a>
+
+	<div style="border: 3px solid #73AD21;">
+        <img src="/img/misc/woman-984247_640.jpg" style="width: 15%; float: left; ">
+        Obraz <a href="https://pixabay.com/pl/users/Free-Photos-242387/?utm_source=link-attribution&amp;utm_medium=referral&amp;utm_campaign=image&amp;utm_content=984247" target="_blank"> Free-Photos</a> z <a href="https://pixabay.com/pl/?utm_source=link-attribution&amp;utm_medium=referral&amp;utm_campaign=image&amp;utm_content=984247" target="_blank"> Pixabay</a>
+
+		<div style="border: 3px solid lightblue; float: left; width: 150px; height: 50px; margin: 10px; margin-bottom: 0px; "></div>
+		<div style="border: 3px solid orange; float: left; width: 150px; height: 50px; margin: 10px; margin-bottom: 0px; "></div>
+		<div style="border: 3px solid grey; float: left; width: 150px; height: 50px; margin: 10px; margin-bottom: 0px; "></div>
+				<p> Pola obok siebie - metoda "float"</p><br><br>
+		<div style="border: 3px solid lightblue; display: inline-block; width: 150px; height: 50px; margin: 10px; "></div><!-- to korekta "white-space bug"
+		--><div style="border: 3px solid orange; display: inline-block; width: 150px; height: 50px; margin: 10px; "></div><!--
+		--><div style="border: 3px solid grey; display: inline-block; width: 150px; height: 50px; margin: 10px;  "></div>
+				<p style="display: inline-block; width: 370px;"> Pola obok siebie - metoda "display: inline-block" (lepsze, ale tutaj nie ma text wrap) </p>
+	</div> <br>	
+	
+    <img src="/img/misc/train-797072_640.jpg" style="width:18%; float: right; margin: 10px;">
+    
+	<p> This property specifies whether to clip content or to add scrollbars when an element's content is too big to fit in a specified area. This property specifies whether to clip content or to add scrollbars when an element's content is too big to fit in a specified area.
+        This property specifies whether to clip content or to add scrollbars when an element's content is too big to fit in a specified area. This property specifies whether to clip content or to add scrollbars when an element's content is too big to fit in a specified area.
+		This property specifies whether to clip content or to add scrollbars when an element's content is too big to fit in a specified area. This property specifies whether to clip content or to add scrollbars when an element's content is too big to fit in a specified area.</p>
+    Obraz <a href="https://pixabay.com/pl/users/Didgeman-153208/?utm_source=link-attribution&amp;utm_medium=referral&amp;utm_campaign=image&amp;utm_content=797072" target="_blank"> Thomas B.</a> z <a href="https://pixabay.com/pl/?utm_source=link-attribution&amp;utm_medium=referral&amp;utm_campaign=image&amp;utm_content=797072" target="_blank"> Pixabay</a>
+    <p style="clear: right;"> This property specifies whether to clip content / add scrollbars when an element's content is too big to fit in a specified area. This property specifies whether to clip content or to add scrollbars when an element's content is too big to fit in a specified area.
+		This property specifies whether to clip content or to add scrollbars when an element's content is too big to fit in a specified area. This property specifies whether to clip content or to add scrollbars when an element's content is too big to fit in a specified area.
+		This property specifies whether to clip content or to add scrollbars when an element's content is too big to fit in a specified area. This property specifies whether to clip content or to add scrollbars when an element's content is too big to fit in a specified area.</p>
+		
+		<div style="position: static; border: 3px solid #ffd480; max-width: 800px; cursor: wait;"> This div element has position: static; max-width i FAJNY KURSOR CZEKAJĄCY </div>		
+		<div style="position: relative; left: 40px; top: 10px; border: 3px dashed red; height: 60px; max-width: 500px;"> This div is positioned relative to its normal position 
+			<div style="position: absolute; right: 0px; top: 30px; border: 3px solid lightblue; width: 300px;"> This div element has position: absolute; </div>
+		</div> 
+		
+        <img src="/img/misc/santorini-4368946_640.jpg" style="width: 300px; position:relative; top:-30px; left: 520px; z-index:+1; clip: rect(0px,180px,90px,0px);">
+        Obraz <a href="https://pixabay.com/pl/users/Pat_Scrap-298457/?utm_source=link-attribution&amp;utm_medium=referral&amp;utm_campaign=image&amp;utm_content=4368946" target="_blank"> Pat_Scrap</a> z <a href="https://pixabay.com/pl/?utm_source=link-attribution&amp;utm_medium=referral&amp;utm_campaign=image&amp;utm_content=4368946" target="_blank"> Pixabay</a>
+	
+		<div style="width: 200px; height: 150px; overflow-x: hidden; overflow-y: scroll; float: right; margin-top: -50px;"> This property specifies whether to clip content or to add scrollbars when an element's content is too big to fit in a specified area. This property specifies whether to clip content or to add scrollbars when an element's content is too big to fit in a specified area.</div>
+		
+		<br><br>
+	<div style="background-color:#d9ad7c; float:left; width:140px; padding:6px;">opcja 1 - "width"</div>
+	<div style="background-color:#fff2df; max-width:900px; padding:6px;">Dużo opisu opcji 1 - "max width"</div>
+		<br><br>
+	<div style="background-color:#d9ad7c; float:left; width:15%; padding:6px;">opcja 2 - "width: %" </div>
+	<div style="background-color:#fff2df; width:60%; padding:6px;">Dużo opisu opcji 2 - "width: %" </div>	
+        <br><br>	
+	
+	<!-- ---------------------------------------------CSS---FLEXBOX------------------------------------------------------------------------ -->
+												<hr><p style="font-family: arial; font-size:20px; text-align:center; color:lightcoral;"> <b> FLEXBOX </b> </p>
+		
+	<p> <b> display: flex </b> (block-level element - zajmuje cały wiersz) </p>
+	<div style="display: flex; max-width: 500px; height: 70px; background-color: #fbefcc; border: 1px dashed #d9ad7c;">
+		<div style="background-color: #d9ad7c; width: 50px; height: 40px; margin: 5px; text-align:center; font-size:14px;"> Flex 5 </div>
+		<div style="background-color: #d9ad7c; width: 50px; height: 40px; margin: 5px; text-align:center; font-size:14px;"> Flex 2 </div>
+		<div style="background-color: #d9ad7c; width: 50px; height: 40px; margin: 5px; text-align:center; font-size:14px;"> Flex 3 </div>
+		<div style="background-color: #d9ad7c; width: 50px; height: 40px; margin: 5px; text-align:center; font-size:14px;"> Flex 4 </div>
+		<div style="background-color: #d9ad7c; width: 50px; height: 40px; margin: 5px; text-align:center; font-size:14px;"> Flex 5 </div>
+	</div>
+		
+	<p> <b> display: inline-flex </b> (inline element - zajmuje tylko kawałek wiersza) </p>
+	<div style="display: inline-flex; max-width: 500px; height: 70px; background-color: #fbefcc; border: 1px dashed #d9ad7c;">
+		<div style="background-color: #d9ad7c; width: 50px; height: 40px; margin: 5px; text-align:center; font-size:14px;"> Flex 1 </div>
+		<div style="background-color: #d9ad7c; width: 50px; height: 40px; margin: 5px; text-align:center; font-size:14px;"> Flex 2 </div>
+		<div style="background-color: #d9ad7c; width: 50px; height: 40px; margin: 5px; text-align:center; font-size:14px;"> Flex 3 </div>
+		<div style="background-color: #d9ad7c; width: 50px; height: 40px; margin: 5px; text-align:center; font-size:14px;"> Flex 4 </div>
+		<div style="background-color: #d9ad7c; width: 50px; height: 40px; margin: 5px; text-align:center; font-size:14px;"> Flex 5 </div>
+	</div>
+	
+	<p> <b> flex-direction: </b> column </p>
+	<div style="display: flex; flex-direction: column; max-width: 180px; height: 170px; background-color: #fbefcc; border: 1px dashed #d9ad7c;">
+		<div style="background-color: #d9ad7c; width: 50px; height: 20px; margin: 5px; text-align:center; font-size:14px;"> Flex 1 </div>
+		<div style="background-color: #d9ad7c; width: 50px; height: 20px; margin: 5px; text-align:center; font-size:14px;"> Flex 2 </div>
+		<div style="background-color: #d9ad7c; width: 50px; height: 20px; margin: 5px; text-align:center; font-size:14px;"> Flex 3 </div>
+		<div style="background-color: #d9ad7c; width: 50px; height: 20px; margin: 5px; text-align:center; font-size:14px;"> Flex 4 </div>
+		<div style="background-color: #d9ad7c; width: 50px; height: 20px; margin: 5px; text-align:center; font-size:14px;"> Flex 5 </div>
+	</div>
+	
+	<p> <b> flex-wrap: </b> wrap </p>
+	<div style="display: flex; flex-wrap: wrap; max-width: 200px; height: 70px; background-color: #fbefcc; border: 1px dashed #d9ad7c;">
+		<div style="background-color: #d9ad7c; width: 50px; height: 40px; margin: 5px; text-align:center; font-size:14px;"> Flex 1 </div>
+		<div style="background-color: #d9ad7c; width: 50px; height: 40px; margin: 5px; text-align:center; font-size:14px;"> Flex 2 </div>
+		<div style="background-color: #d9ad7c; width: 50px; height: 40px; margin: 5px; text-align:center; font-size:14px;"> Flex 3 </div>
+		<div style="background-color: #d9ad7c; width: 50px; height: 40px; margin: 5px; text-align:center; font-size:14px;"> Flex 4 </div>
+		<div style="background-color: #d9ad7c; width: 50px; height: 40px; margin: 5px; text-align:center; font-size:14px;"> Flex 5 </div>
+	</div><br>	
+	
+	<p> <b> justify-content: </b> space-around </p>
+	<div style="display: flex; justify-content: space-around; max-width: 400px; height: 70px; background-color: #fbefcc; border: 1px dashed #d9ad7c;">
+		<div style="background-color: #d9ad7c; width: 50px; height: 40px; margin: 5px; text-align:center; font-size:14px;"> Flex 1 </div>
+		<div style="background-color: #d9ad7c; width: 50px; height: 40px; margin: 5px; text-align:center; font-size:14px;"> Flex 2 </div>
+		<div style="background-color: #d9ad7c; width: 50px; height: 40px; margin: 5px; text-align:center; font-size:14px;"> Flex 3 </div>
+		<div style="background-color: #d9ad7c; width: 50px; height: 40px; margin: 5px; text-align:center; font-size:14px;"> Flex 4 </div>
+		<div style="background-color: #d9ad7c; width: 50px; height: 40px; margin: 5px; text-align:center; font-size:14px;"> Flex 5 </div>
+	</div>	
+	
+	<p> <b> align-items: </b> center </p>
+	<div style="display: flex; align-items: center; max-width: 350px; height: 80px; background-color: #fbefcc; border: 1px dashed #d9ad7c;">
+		<div style="background-color: #d9ad7c; width: 50px; margin: 5px; text-align:center; font-size:14px;"> Flex 1 </div>
+		<div style="background-color: #d9ad7c; width: 50px; margin: 5px; text-align:center; font-size:14px;"> Flex 2 </div>
+		<div style="background-color: #d9ad7c; width: 50px; margin: 5px; text-align:center; font-size:14px;"> Flex 3 </div>
+		<div style="background-color: #d9ad7c; width: 50px; margin: 5px; text-align:center; font-size:14px;"> Flex 4 </div>
+		<div style="background-color: #d9ad7c; width: 50px; margin: 5px; text-align:center; font-size:14px;"> Flex 5 </div>
+	</div><br>	
+	
+	<p> <b> align-content: </b> space-around </p>
+	<div style="display: flex; flex-wrap: wrap; align-content: space-around; max-width: 280px; height: 80px; background-color: #fbefcc; border: 1px dashed #d9ad7c;">
+		<div style="order: +7; background-color: #d9ad7c; width: 50px; margin: 5px; text-align:center; font-size:14px;"> Flex 1 </div>
+		<div style="order: +6; background-color: #d9ad7c; width: 50px; margin: 5px; text-align:center; font-size:14px;"> Flex 2 </div>
+		<div style="order: +5; background-color: #d9ad7c; width: 50px; margin: 5px; text-align:center; font-size:14px;"> Flex 3 </div>
+		<div style="order: +4; background-color: #d9ad7c; width: 50px; margin: 5px; text-align:center; font-size:14px;"> Flex 4 </div>
+		<div style="order: +3; background-color: #d9ad7c; width: 50px; margin: 5px; text-align:center; font-size:14px;"> Flex 5 </div>
+		<div style="order: +2; background-color: #d9ad7c; width: 50px; margin: 5px; text-align:center; font-size:14px;"> Flex 6 </div>
+		<div style="order: +1; background-color: #d9ad7c; width: 50px; margin: 5px; text-align:center; font-size:14px;"> Flex 7 </div>
+	</div><br>	
+	
+	<p> <b> margin: </b> auto </p>
+	<div style="display: flex; max-width: 500px; height: 70px; background-color: #fbefcc; border: 1px dashed #d9ad7c;">
+		<div style="background-color: #d9ad7c; width: 50px; height: 40px; margin: 5px; text-align:center; font-size:14px;"> Flex 1 </div>
+		<div style="background-color: #d9ad7c; width: 50px; height: 40px; margin: 5px; text-align:center; font-size:14px;"> Flex 2 </div>
+		<div style="background-color: #d9ad7c; width: 50px; height: 40px; margin: auto; text-align:center; font-size:14px;"> Flex 3 </div>
+		<div style="background-color: #d9ad7c; width: 50px; height: 40px; margin: 5px; text-align:center; font-size:14px;"> Flex 4 </div>
+		<div style="background-color: #d9ad7c; width: 50px; height: 40px; margin: 5px; text-align:center; font-size:14px;"> Flex 5 </div>
+	</div>
+		
+	<p> <b> align-self: </b> center </p>
+	<div style="display: flex; max-width: 400px; height: 100px; background-color: #fbefcc; border: 1px dashed #d9ad7c;">
+		<div style="background-color: #d9ad7c; width: 50px; margin: 5px; align-self: center; text-align:center; font-size:14px;"> Flex 1 </div>
+		<div style="background-color: #d9ad7c; width: 50px; margin: 5px; align-self: flex-end; text-align:center; font-size:14px;"> Flex 2 </div>
+		<div style="background-color: #d9ad7c; width: 50px; margin: 5px; align-self: flex-start; text-align:center; font-size:14px;"> Flex 3 </div>
+		<div style="background-color: #d9ad7c; width: 50px; margin: 5px; align-self: stretch; text-align:center; font-size:14px;"> Flex 4 </div>
+		<div style="background-color: #d9ad7c; width: 50px; margin: 5px; align-self: center; text-align:center; font-size:14px;"> Flex 5 </div>
+	</div>	
+	
+	<p> <b> flex: </b> liczba </p>
+	<div style="display: flex; max-width: 500px; height: 100px; background-color: #fbefcc; border: 1px dashed #d9ad7c;">
+		<div style="flex: 1; background-color: #d9ad7c; width: 50px; height: 40px; margin: 5px; text-align:center; font-size:14px;"> Flex 1 </div>
+		<div style="flex: 2; background-color: #d9ad7c; width: 50px; height: 40px; margin: 5px; text-align:center; font-size:14px;"> Flex 2 </div>
+		<div style="flex: 3; background-color: #d9ad7c; width: 50px; height: 40px; margin: 5px; text-align:center; font-size:14px;"> Flex 3 </div>
+		<div style="flex: 4; background-color: #d9ad7c; width: 50px; height: 40px; margin: 5px; text-align:center; font-size:14px;"> Flex 4 </div>
+		<div style="flex: 0.5; background-color: #d9ad7c; width: 50px; height: 40px; margin: 5px; text-align:center; font-size:14px;"> Flex 5 </div>
+	</div>	
+														
+	<!-- ---------------------------------------------CSS---BACKGROUND------------------------------------------------------------------------ -->
+                                        <hr>	<p style="font-family: arial; font-size:20px; text-align:center; color:brown;"> <b> BACKGROUND </b> </p>
+                                        
+	<p style="font-size: 16px; font-family: arial; color: blue;"> ZMIANA WYMIARÓW OBRAZU: </p>	
+		
+	<div style="float:left; margin-left:20px; clear:left;">
+		<span> original image (cały): </span><br>
+		<img src="/img/misc/pier-569314_640.jpg" style="border: 1px solid black; height:140px; width:120px;">
+	</div>
+	
+	<div style="float:left; margin-left:20px;">
+		<span style="color:blue;"> background-size: <b> % </b> </span>
+		<div style="border: 1px solid black; height:150px; width:180px; background-image:url(/img/misc/sea-1337565_640.jpg),
+					url(/img/misc/pier-569314_640.jpg);
+					background-repeat: no-repeat; background-position: 60px 80px, right top; background-size: 50%, 85%"></div>
+	</div>
+		
+	<div style="float:left; margin-left:20px;">
+	<span> background-size: <b> cover </b> </span>
+	<div style="border: 1px solid black; height:150px; width:180px; background-image:url(/img/misc/pier-569314_640.jpg);
+				background-repeat: no-repeat; background-size: cover;">
+	</div></div>
+		
+	<div style="float:left; margin-left:20px; margin-bottom:15px;">
+	<span> background-size: <b> contain </b> </span>
+	<div style="border: 1px solid black; height:150px; width:180px; background-image:url(/img/misc/pier-569314_640.jpg);
+				background-repeat: no-repeat; background-size: contain;">
+	</div></div><br><br>
+    Obraz <a href="https://pixabay.com/pl/users/Free-Photos-242387/?utm_source=link-attribution&amp;utm_medium=referral&amp;utm_campaign=image&amp;utm_content=569314" target="_blank"> Free-Photos</a> z <a href="https://pixabay.com/pl/?utm_source=link-attribution&amp;utm_medium=referral&amp;utm_campaign=image&amp;utm_content=569314" target="_blank"> Pixabay</a>
+    Obraz <a href="https://pixabay.com/pl/users/croisy-1670164/?utm_source=link-attribution&amp;utm_medium=referral&amp;utm_campaign=image&amp;utm_content=1337565" target="_blank"> croisy</a> z <a href="https://pixabay.com/pl/?utm_source=link-attribution&amp;utm_medium=referral&amp;utm_campaign=image&amp;utm_content=1337565" target="_blank"> Pixabay</a>
+    Obraz <a href="https://pixabay.com/pl/users/adamkontor-79075/?utm_source=link-attribution&amp;utm_medium=referral&amp;utm_campaign=image&amp;utm_content=1745173" target="_blank"> adamkontor</a> z <a href="https://pixabay.com/pl/?utm_source=link-attribution&amp;utm_medium=referral&amp;utm_campaign=image&amp;utm_content=1745173" target="_blank"> Pixabay</a>
+
+	<p style="font-size: 16px; font-family: arial; color: orange; clear: left;"> PRZYCINANIE OBRAZU: </p>	
+	
+	<div class="ramka_zew" style="clear:left;"> <span> background-origin: <b> border-box </b> <br> background-clip: <b> border-box (d) </b> </span>
+	 <div class="ramka_wew"                     style="background-origin:     border-box;          background-clip:     border-box;"> </div></div>
+	
+	<div class="ramka_zew"> <span> background-origin: <b> border-box </b> <br> background-clip: <b> padding-box </b> </span>
+	 <div class="ramka_wew" style="background-origin:     border-box;          background-clip:     padding-box;"> </div></div>
+	
+	<div class="ramka_zew">	<span> background-origin: <b> border-box </b> <br> background-clip: <b> content-box </b> </span>
+	 <div class="ramka_wew" style="background-origin:     border-box;          background-clip:     content-box;"> </div></div>
+
+	<div class="ramka_zew" style="clear:left;">	<span> background-origin: <b> padding-box (d) </b> <br> background-clip: <b> border-box (d) </b> </span>
+						 <div class="ramka_wew" style="background-origin:     padding-box;              background-clip:     border-box;"> </div></div>
+	
+	<div class="ramka_zew">	<span> background-origin: <b> padding-box (d) </b> <br> background-clip: <b> padding-box </b> </span>
+	 <div class="ramka_wew" style="background-origin:     padding-box;              background-clip:     padding-box;"> </div></div>
+	
+	<div class="ramka_zew">	<span> background-origin: <b> padding-box (d) </b> <br> background-clip: <b> content-box </b> </span>
+	 <div class="ramka_wew" style="background-origin:     padding-box;              background-clip:     content-box;"> </div></div>	
+	
+	<div class="ramka_zew" style="clear:left;">	<span> background-origin: <b> content-box </b> <br> background-clip: <b> border-box (d) </b> </span>
+	                     <div class="ramka_wew" style="background-origin:     content-box;          background-clip:     border-box;"> </div></div>
+	
+	<div class="ramka_zew">	<span> background-origin: <b> content-box </b> <br> background-clip: <b> padding-box </b> </span>
+	 <div class="ramka_wew" style="background-origin:     content-box;          background-clip:     padding-box;"> </div></div>
+	
+	<div class="ramka_zew">	<span> background-origin: <b> content-box </b> <br> background-clip: <b> content-box </b> </span>
+	 <div class="ramka_wew" style="background-origin:     content-box;          background-clip:     content-box;"> </div></div>	 	<hr style="clear:left; margin-top:140px;">
+	 
+	<!-- ---------------------------------------------CSS---GRADIENTS----------------------------------------------------------------------- -->
+                                            <p style="font-family: arial; font-size:20px; text-align:center; color:YellowGreen ;"> <b> GRADIENTS </b> </p>
+	
+		<div style="float:left; margin-left:20px; height: 90px; width: 90px; background: linear-gradient(red, yellow);"> </div>
+		<div style="float:left; margin-left:20px; height: 90px; width: 90px; background: linear-gradient(red, yellow 50%);"> </div>
+		<div style="float:left; margin-left:20px; height: 90px; width: 90px; background: linear-gradient(to right, #1a90ff, #ffffff);"> </div>
+		<div style="float:left; margin-left:20px; height: 90px; width: 90px; background: linear-gradient(to bottom right, #ffffcc, #ffaa00);"> </div>
+		<div style="float:left; margin-left:20px; height: 90px; width: 90px; background: linear-gradient(-20deg, #ffffcc, #ffaa00);"> </div>
+		<div style="float:left; margin-left:20px; height: 90px; width: 90px; background: linear-gradient(red, white, orange);"> </div>
+		<div style="float:left; margin-left:20px; height: 90px; width: 90px; background: linear-gradient(red,orange,yellow,green,blue,indigo,violet);"> </div>
+		
+		<div style="float:left; margin-left:20px; height: 90px; width: 90px; background: radial-gradient(white, blue);"> </div>		
+		<div style="float:left; margin-left:20px; height: 90px; width: 90px; background: radial-gradient(circle at top left, aqua, blue);"> </div>
+		
+	<!-- ---------------------------------------------CSS---BUTTONS------------------------------------------------------------------------ -->
+						<hr style="clear:left; margin-top:140px;">			<p style="font-family: arial; font-size:20px; text-align:center; color:tomato;"> <b> BUTTONS </b> </p>	 
+
+	<button> Domyślny przycisk </button>			<input type="button" value="Input type button"> 			<a href="#"> a - link </a> <br><br>
+	<button class="przycisk512"> Button </button>
+	<input class="przycisk512" type="button" value="Input type button">
+	<a href="#" class="przycisk512"> a - link </a>  <br><br>
+	
+	<button class="przycisk512"> Button </button>
+	<button class="przycisk512" style="background-color: #008CBA;"> Button </button>
+	<button class="przycisk512" style="background-color: #f44336; padding: 24px 40px; border-radius: 12px;"> Button </button>
+	<button class="przycisk512" style="background-color: #e7e7e7; color: black; font-size: 28px;"> Button </button>
+	<button class="przycisk512" style="background-color: #555555; font-size: 10px; padding: 10px 40px;"> Button </button>
+	<button class="przycisk512" style="background-color: white; color:black; border: 2px solid #f44336"> Button </button>
+	<button class="przycisk512" style="background-color: white; color:black; border: 2px solid #e7e7e7; width: 200px;"> Button </button> <br><br>
+		
+	<button class="przycisk512 przycisk701"> Button </button>				
+	<button class="przycisk512 przycisk702"> Button </button>	<button class="przycisk512 przycisk703"> Button </button>	<button class="przycisk512 przycisk704"> Button </button> 
+			
+	<a id="link130" href="http://wiadomosci.gazeta.pl/wiadomosci/0,0.html" target="_blank"> Pociągi osobowe </a>
+	<a id="link140" href="http://wiadomosci.gazeta.pl/wiadomosci/0,0.html" target="_blank"> Pociągi ekspresowe </a> 
+	
+	<div id="div19" style="display: inline; border: 1px orange dotted;"> => Wskazówka ? najedź myszką <=
+		<p id="p19" style="border:black dashed 1px; width: 10px; padding: 4px 10px;"> Oto dokładna mapa => </p>
+	</div><br><br>
+	
+	<div id="wskazówka01" style="position: relative; display: inline-block; left:180px; top: 4px;"> Wiadomość
+		<div id="wskazówka01-tekst" style="width: 120px; background-color: orange; 
+				 color: #fff; text-align:center; border-radius:6px; padding:5px 0px; position:absolute; z-index:1; top:-70%; left:120%;"> Informacja dodatkowa 
+			<div style="position:absolute; top:30%; left:-18%; width:0; height:0; border-top: 10px solid transparent; border-left: 10px solid transparent; border-right: 10px solid red; border-bottom: 10px solid transparent;"></div>
+		</div>
+	</div>						
+	<div style="width:0; height:0; margin-top:-20px; border-top:15px solid NavajoWhite; border-left:15px solid MistyRose; border-right:15px solid yellow; border-bottom:15px solid #b3ccff;"></div>
+	<br><hr style="margin-top:0px;">
+	
+	<!-- ---------------------------------------------CSS---MENUS----------------------------------------------------------------------- -->
+										<p style="font-family: arial; font-size:20px; text-align:center; color:firebrick;"> <b> MENUS </b> </p>
+			
+	<div id="lista_w_dół" style="position: relative; display: inline-block;">
+		<button style="background-color: #4CAF50; color: white; padding: 16px; font-size: 16px; border: none; cursor: pointer;"> Historia Japonii </button>
+		<div id="lista_w_dół-treść" style="position: absolute; /* right: 0; */ background-color: #f9f9f9; min-width: 160px; box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);">
+			<a href="#"> Link 1 </a>
+			<a href="#"> Link 2 </a>
+			<a href="#"> Link 3 </a>
+		</div>
+	</div><br><br><br>
+	
+	<div id="rozwijanemenu01" style="position:relative; display:inline-block; top:0px; left:300px; background-color:PapayaWhip; cursor:pointer;">
+		<p style="padding: 0px 16px;"> Historia japońskich pociągów </p>
+		<div style="position:absolute; background-color:#f9f9f9; width:240px; box-shadow:0px 8px 16px 0px rgba(0,0,0,0.2); text-align:left; padding-left:16px;">
+			<p> Pociągi ekspresowe </p>
+		</div>
+	</div>
+	
+		<ul id="menupionowe" style="list-style-type:none; margin:0; padding:0; width:15%; background-color:#f1f1f1; float: left; height:200px; overflow:auto;">
+			<li><a id="aktywny01" href="#stronagłówna"> Strona główna </a></li>
+			<li><a href="#wiadomości01"> Wiadomości </a></li>
+			<li><a href="#kontakt01"> Kontakt </a></li>
+			<li><a href="#omnie01"> O mnie </a></li>
+		</ul>
+		
+		<ul id="menupoziome" style="list-style-type:none; margin-top:120px; padding:0; overflow:hidden; background-color:#f3f3f3;">
+			<li><a id="aktywny02" href="#stronagłówna"> Strona główna </a></li>
+			<li><a href="#wiadomości02"> Wiadomości </a></li>
+			<li><a href="#kontakt02"> Kontakt </a></li>
+			<li><a href="#omnie02"> O mnie </a></li>
+        </ul>
+	
+	<!-- ---------------------------------------------CSS---IMAGES----------------------------------------------------------------------- -->
+									<hr><p style="font-family: arial; font-size:20px; text-align:center; color:YellowGreen ;"> <b> IMAGES </b> </p>	 
+		
+	<img id="obrazek101" src="/img/misc/beach-1236581_640.jpg" 
+		 style="height:150px; width:180px; float:left; margin-left:20px; border: 1px solid #ddd; border-radius: 24px; padding: 5px; transition: 0.1s;">
+	
+	<div style="position:relative; float:left; max-width:100%; margin-left:20px;">	<!-- div jest tylko po to, żeby umieścić napis -->
+		<img src="/img/misc/adult-1807500_640.jpg" 
+			 style="width: 300px; max-width:100%; border-radius: 20%;">
+		<div style="position:absolute; top: 40%; left: 35%; color:white; "> <b> responsive image </b> </div>
+	</div>
+	
+    <img id="imgBUS" src="/img/misc/automobile-1853936_640.jpg" style="box-shadow: 8px 8px 16px 0px rgba(0,0,0,0.2); width:250px; padding:2px; margin:4px;"> <br><br><br>
+    
+    Obraz <a href="https://pixabay.com/pl/users/MustangJoe-2162920/?utm_source=link-attribution&amp;utm_medium=referral&amp;utm_campaign=image&amp;utm_content=1236581" target="_blank"> MustangJoe</a> z <a href="https://pixabay.com/pl/?utm_source=link-attribution&amp;utm_medium=referral&amp;utm_campaign=image&amp;utm_content=1236581" target="_blank"> Pixabay</a>
+    Obraz <a href="https://pixabay.com/pl/users/sasint-3639875/?utm_source=link-attribution&amp;utm_medium=referral&amp;utm_campaign=image&amp;utm_content=1807500" target="_blank"> Sasin Tipchai</a> z <a href="https://pixabay.com/pl/?utm_source=link-attribution&amp;utm_medium=referral&amp;utm_campaign=image&amp;utm_content=1807500" target="_blank"> Pixabay</a>
+    Obraz <a href="https://pixabay.com/pl/users/Pexels-2286921/?utm_source=link-attribution&amp;utm_medium=referral&amp;utm_campaign=image&amp;utm_content=1853936" target="_blank"> Pexels</a> z <a href="https://pixabay.com/pl/?utm_source=link-attribution&amp;utm_medium=referral&amp;utm_campaign=image&amp;utm_content=1853936" target="_blank"> Pixabay</a>
+
+	<!-- ---------------------------------------------CSS---TRANSFORM, TRANSITION, ANIMATION------------------------------------------------------------------------ -->
+															<hr><p style="font-family: arial; font-size:20px; text-align:center; color:red;"> <b> TRANSFORM, TRANSITION, ANIMATION </b> </p>
+	
+		<div id="rozwijane_menu01" style="background: #b3f0ff;"> prostokącik w ruchu </div><br><br>
+																
+		<div style="float:left; margin-left:20px; width: 200px; background-color: yellow; border: 1px solid black;"> 1. The translate() method moves an element from its current position.</div>
+		<div style="float:left; margin-left:20px; width: 200px; background-color: red; border: 1px solid black;    transform: translate(40px,30px); "> 2. The translate() method moves an element from its current position.</div>
+		<div style="float:left; margin-left:20px; width: 200px; background-color: yellow; border: 1px solid black; transform: rotate(20deg);"> 3. The translate() method moves an element from its current position.</div>
+		<div style="float:left; margin-left:20px; width: 200px; background-color: yellow; border: 1px solid black; transform: scale(2, 0.8);"> 4. The translate() method moves an element from its current position.</div>
+		<div style="float:left; margin-left:20px; width: 200px; background-color: yellow; border: 1px solid black; transform: skewX(20deg);"> 5. The translate() method moves an element from its current position.</div>
+		<div style="float:left; margin-left:20px; width: 200px; background-color: yellow; border: 1px solid black; transform: skewY(20deg);"> 6. The translate() method moves an element from its current position.</div>
+		<div style="float:left; margin-left:20px; width: 200px; background-color: yellow; border: 1px solid black; transform: skew(20deg, 10deg);"> 7. The translate() method moves an element from its current position.</div>
+		<div style="float:left; margin-left:12px; width: 200px; background-color: #cce6ff; border: 1px solid black; transform: rotateX(150deg);clear:left;"> A. The translate() method moves an element from its current position.</div>
+		<div style="float:left; margin-left:12px; width: 200px; background-color: #cce6ff; border: 1px solid black; transform: rotateY(150deg);"> B. The translate() method moves an element from its current position.</div>
+		<div style="float:left; margin-bottom:40px; margin-left:12px; width: 200px; background-color: #cce6ff; border: 1px solid black; transform: rotateZ(150deg);"> C. The translate() method moves an element from its current position.</div>
+		<div style="clear:both;"><div>
+    
+	<!-- ---------------------------------------------CSS---SVG, CANVAS------------------------------------------------------------------------ -->
+														<hr><p style="font-family: arial; font-size:20px; text-align:center; color:brown;"> <b> CANVAS </b></p>
+				
+		<svg width="15%" height="100" viewBox="0 0 200 100" style="outline: 3px solid #630;">
+			  <circle r="25" cx="25" cy="25" fill="#f00" />		<!-- cały ten obrazek się skaluje -->
+			  <circle r="3" cx="15" cy="20" fill="white" />
+			  <circle r="3" cx="35" cy="20" fill="white" />
+			  <rect x="200" y="100" width="50" height="50" fill="#933" />	
+		</svg>
+		
+		<svg width="200" height="100" viewBox="25 25 200 100" style="outline: 3px solid #630; margin-left:100px;"> 
+			  <circle r="25" cx="25" cy="25" fill="#f00" />
+			  <rect x="200" y="100" width="50" height="50" fill="#933" />
+		</svg>
+		
+		<svg width="200" height="100" viewBox="0 0 400 200" style="outline: 3px solid #630; margin-left:100px;"> 
+			  <circle r="25" cx="25" cy="25" fill="#f00" />
+			  <rect x="200" y="100" width="50" height="50" fill="#933" />
+		</svg>
+		
+		<svg fill="orange" width="100" height="90" style="margin-left:80px;">
+				<rect height="80" width="100"/>						<!-- tym elementom można nadawać style w <head> -->
+				<rect height="50" width="80" fill="white" x="10" y="10"/>		<!-- lewy górny punkt, to: 0,0 -->
+				<rect height="10" width="40" x="30" y="90"/>
+		</svg><br><br><br>
+						 
+	<div style="display: inline-block; margin-left:10px; border-radius: 15px 50px 30px 5px; background: #73AD21; padding: 20px; width: 20px; height: 20px; "></div>
+	<div style="display: inline-block; margin-left:10px; border-top-left-radius: 15px 50px; background: orange; padding: 20px; width: 20px; height: 20px; "></div>
+	<div style="display: inline-block; margin-left:10px; border-radius: 50%; background: #ffcc66; width: 60px; height: 60px; "></div>
+    <br><br>
+	
+	</body>
+</html>
