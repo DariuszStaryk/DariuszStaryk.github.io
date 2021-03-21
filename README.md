@@ -1,2 +1,2 @@
-# DariuszStaryk.github.io
-My Personal Website. Technologies used: HTML5, CSS3, Javascript, jQuery, Photoshop.
+# My Personal Website
+Technologies used: HTML5, CSS3, Javascript, jQuery, Photoshop.
